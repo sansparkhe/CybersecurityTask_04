@@ -1,0 +1,19 @@
+def log_input():
+    log_file = "keylog.txt"
+
+    # Open file in append mode
+    with open(log_file, "a") as f:
+        while True:
+            user_input = input("Enter something (type 'exit' to stop): ")
+            if user_input.lower() == 'exit':
+                print("Logging stopped.")
+                break
+            f.write(user_input + "\n")
+            print(f"Logged: {user_input}")
+
+log_input()
+
+# Display the contents of the keylog file after logging
+print("\n--- Contents of keylog.txt ---")
+with open("keylog.txt", "r") as f:
+    print(f.read())
